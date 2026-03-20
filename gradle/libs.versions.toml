@@ -1,0 +1,37 @@
+# ============================================================
+# libs.versions.toml — 版本目录文件（Version Catalog）
+#
+# 用于集中管理项目中所有插件和依赖的版本号。
+# 子模块通过 libs.xxx 的方式引用，避免版本号分散在各个 build.gradle 中。
+# ============================================================
+
+[versions]
+# Android Gradle 插件版本
+agp = "9.0.1"
+# AndroidX 核心库（提供 KTX 扩展函数）
+coreKtx = "1.18.0"
+# AppCompat：向下兼容旧版系统的 Activity / Fragment / 主题支持
+appcompat = "1.7.1"
+# Material Design 3 组件库
+material = "1.13.0"
+# AndroidX Activity （支持 enableEdgeToEdge、结果合约等现代 API）
+activity = "1.13.0"
+# ConstraintLayout 约束布局
+constraintlayout = "2.2.1"
+
+[libraries]
+# AndroidX 核心 KTX：为 常用 Android API 提供 Kotlin 扩展
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+# AppCompat：提供向下兼容的 AppCompatActivity
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+# Material Design 3：提供按鈕、设计主题、导航栏等 UI 组件
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+# AndroidX Activity：现代 Activity 基类
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+# ConstraintLayout：灵活的平面布局，适合复杂界面
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+
+[plugins]
+# Android 应用模块插件（AGP）
+android-application = { id = "com.android.application", version.ref = "agp" }
+
