@@ -7,6 +7,7 @@
 ## 项目简介
 
 本项目是一个经过精简和现代化配置的 Android 模板项目，作为课程实验的统一起点。  
+**模板本身不包含任何 Activity**，学生根据实验需求自行创建 Activity 并在 Manifest 中注册。  
 使用前只需修改少量配置，即可快速开始每次实验，无需从空项目反复搭建环境。
 
 ---
@@ -22,7 +23,7 @@
 | minSdk | 24（Android 7.0+） |
 | 主题 | Material3 · `Theme.AndroidTech` · DayNight · NoActionBar |
 | 包名 | `cn.edu.sziit.android.tech` |
-| 入口 Activity | `EntryActivity`（纯代码 UI，无 XML 布局） |
+| 入口 Activity | 无（由使用者按实验需求自行创建） |
 | ViewBinding | 已启用 |
 
 ### 依赖库
@@ -44,7 +45,7 @@ AndroidBaseProject/
 ├── app/
 │   ├── src/main/
 │   │   ├── java/cn/edu/sziit/android/tech/
-│   │   │   └── EntryActivity.kt        # 默认入口，纯代码 UI
+│   │   │   └── （空包，新建 Activity 放于此处）
 │   │   ├── res/
 │   │   │   ├── drawable/               # 启动图标矢量素材
 │   │   │   ├── mipmap-anydpi-v26/      # 自适应图标（API 26+）
@@ -89,13 +90,25 @@ rootProject.name = "实验项目名称"
 
 **在 Android Studio 中右键包名目录 → Refactor → Rename**，将 `cn.edu.sziit.android.tech` 改为对应实验的包名，同时更新 `build.gradle.kts` 中的 `namespace`。
 
-### 3. 修改入口 Activity（必改）
+### 3. 创建 Activity 并注册（必须）
 
-**文件：`EntryActivity.kt`**  
-删除提示文字，根据实验需求实现实际界面。  
-如需使用 XML 布局：
-1. 在 `res/layout/` 创建布局文件（目录需手动创建）
-2. 使用 ViewBinding：`val binding = ActivityXxxBinding.inflate(layoutInflater)`
+本模板不含默认 Activity，需根据实验内容创建。
+
+**在 Android Studio 中**：  
+右键包名 → New → Activity → 选择类型（如 Empty Views Activity）
+
+或手动创建 Kotlin 文件，并在 `AndroidManifest.xml` 中注册：
+
+```xml
+<activity
+    android:name=".MainActivity"
+    android:exported="true">
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+</activity>
+```
 
 ### 4. 修改应用名称（建议）
 
