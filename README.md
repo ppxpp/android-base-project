@@ -140,7 +140,3 @@ rootProject.name = "实验项目名称"
 - 依赖库通过阿里云镜像加速下载（`maven.aliyun.com`）
 - AGP 9.0 使用内置 Kotlin，无需手动声明 `kotlin-android` 插件
 - ViewBinding 已全局启用，新增布局文件后自动生成对应绑定类
-
----
-
-*深圳信息职业技术学院 · Android 移动应用开发课程*
