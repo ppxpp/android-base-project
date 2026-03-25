@@ -12,14 +12,14 @@ plugins {
 
 android {
     // 命名空间：用于生成 R 类，替代旧版 AndroidManifest.xml 中的 package 属性
-    namespace = "cn.edu.sziit.android.tech"
+    namespace = "cn.edu.sziit.android.debugdemo"
 
     // compileSdk：编译时使用的 Android API 级别（不影响运行时最低版本要求）
     compileSdk = 36
 
     defaultConfig {
         // 应用唯一标识符，发布到应用商店时使用此 ID
-        applicationId = "cn.edu.sziit.android.tech"
+        applicationId = "cn.edu.sziit.android.debugdemo"
         // 最低支持的 Android 版本（API 24 = Android 7.0 牛轧糖）
         minSdk = 24
         // 目标 API 级别：应用针对此版本进行优化和测试

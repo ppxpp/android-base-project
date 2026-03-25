@@ -34,6 +34,6 @@ dependencyResolutionManagement {
 }
 
 // 项目逻辑名称（显示在 Android Studio 左侧项目面板）
-rootProject.name = "AndroidBaseProject"
+rootProject.name = "DebugDemo"
 // 包含的子模块（:app 是应用主模块，多模块项目可在此追加）
 include(":app")
