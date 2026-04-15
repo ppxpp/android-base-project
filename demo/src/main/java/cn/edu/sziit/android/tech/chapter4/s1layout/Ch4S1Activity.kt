@@ -1,4 +1,4 @@
-﻿package cn.edu.sziit.android.tech.chapter4.s1layout
+package cn.edu.sziit.android.tech.chapter4.s1layout
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -13,9 +13,14 @@ class Ch4S1Activity : AppCompatActivity() {
 
     private val entries = listOf(
         MenuEntry(
-            title = "Lab",
-            subtitle = "Complete the lab exercise here",
-            action = "cn.edu.sziit.android.tech.lab.CH4_S1"
+            title = "线性布局实验",
+            subtitle = "LinearLayout 属性练习",
+            action = "cn.edu.sziit.android.tech.lab.CH4_S1_LINEAR"
+        ),
+        MenuEntry(
+            title = "约束布局实验",
+            subtitle = "ConstraintLayout 约束关系练习",
+            action = "cn.edu.sziit.android.tech.lab.CH4_S1_CONSTRAINT"
         ),
         MenuEntry(
             title = "visibility Demo",

@@ -1,4 +1,4 @@
-﻿package cn.edu.sziit.android.tech.chapter4.s1layout.demo
+package cn.edu.sziit.android.tech.chapter4.s1layout.demo
 
 import android.os.Bundle
 import android.util.TypedValue

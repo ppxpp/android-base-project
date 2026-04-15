@@ -19,12 +19,22 @@
             </intent-filter>
         </activity>
 
-        <!-- 4.1 实验框架（保留在 :app；通过 Intent Action 供 :demo 无耦合跳转）-->
+        <!-- 4.1 线性布局实验（通过 Intent Action 供 :demo 跳转，无直接依赖）-->
         <activity
-            android:name=".chapter4.s1layout.Ch4S1LabActivity"
+            android:name=".chapter4.s1layout.Ch4S1LinearLabActivity"
             android:exported="true">
             <intent-filter>
-                <action android:name="cn.edu.sziit.android.tech.lab.CH4_S1" />
+                <action android:name="cn.edu.sziit.android.tech.lab.CH4_S1_LINEAR" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 4.1 约束布局实验 -->
+        <activity
+            android:name=".chapter4.s1layout.Ch4S1ConstraintLabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="cn.edu.sziit.android.tech.lab.CH4_S1_CONSTRAINT" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
