@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context=".chapter4.s1layout.Ch4S1ConstraintLabActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:title="约束布局实验" />
+
+    <!-- ================================================================
+         实验区域：在下方 ConstraintLayout 内完成约束布局练习
+         可添加视图并通过 app:layout_constraint* 属性设置约束关系
+         ================================================================ -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/labContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp">
+
+        <!-- TODO: 在此添加实验内容 -->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
