@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    :demo 模块清单文件
+    声明本模块内的所有 Activity，构建时自动合并进 :app 的最终 AndroidManifest.xml。
+    不包含 <application> 级别的图标、标签等属性（由 :app 主模块统一管理）。
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+
+        <!-- 第4章 · Android 组件 总菜单 -->
+        <activity android:name="cn.edu.sziit.android.tech.chapter4.Ch4Activity" />
+
+        <!-- 4.1 Activity 布局 — 小节菜单 -->
+        <activity android:name="cn.edu.sziit.android.tech.chapter4.s1layout.Ch4S1Activity" />
+
+        <!-- 4.1 效果演示容器（Fragment 容器页） -->
+        <activity android:name="cn.edu.sziit.android.tech.chapter4.s1layout.Ch4S1DemoActivity" />
+
+    </application>
+
+</manifest>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    values-night/colors.xml — 深色模式色值覆盖
+    系统处于深色模式时，此文件中的色值会自动替换 values/colors.xml 中的同名色值。
+-->
+<resources>
+    <!-- 暗色模式下无需重定义 md_theme_dark_* 系列，
+         themes.xml 会在 night 版本中直接引用这些 token。 -->
+</resources>
