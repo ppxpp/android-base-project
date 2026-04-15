@@ -12,4 +12,6 @@
 plugins {
     // Android 应用插件（仅声明版本，:app 模块中应用）
     alias(libs.plugins.android.application) apply false
+    // Android 库插件（仅声明版本，:demo 等库模块中应用）
+    alias(libs.plugins.android.library) apply false
 }

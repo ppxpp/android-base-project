@@ -18,6 +18,8 @@ material = "1.13.0"
 activity = "1.13.0"
 # ConstraintLayout 约束布局
 constraintlayout = "2.2.1"
+# RecyclerView 列表组件
+recyclerview = "1.4.0"
 
 [libraries]
 # AndroidX 核心 KTX：为 常用 Android API 提供 Kotlin 扩展
@@ -30,8 +32,12 @@ material = { group = "com.google.android.material", name = "material", version.r
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 # ConstraintLayout：灵活的平面布局，适合复杂界面
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+# RecyclerView：高性能列表/网格视图
+androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
 
 [plugins]
 # Android 应用模块插件（AGP）
 android-application = { id = "com.android.application", version.ref = "agp" }
+# Android 库模块插件（AGP Library）
+android-library = { id = "com.android.library", version.ref = "agp" }
 

@@ -20,8 +20,8 @@ android {
     defaultConfig {
         // 应用唯一标识符，发布到应用商店时使用此 ID
         applicationId = "cn.edu.sziit.android.tech"
-        // 最低支持的 Android 版本（API 24 = Android 7.0 牛轧糖）
-        minSdk = 24
+        // 最低支持的 Android 版本
+        minSdk = 27
         // 目标 API 级别：应用针对此版本进行优化和测试
         targetSdk = 36
         // 内部版本号，每次发布必须递增
@@ -68,4 +68,8 @@ dependencies {
     implementation(libs.androidx.activity)
     // ConstraintLayout：灵活的平面布局，适合复杂界面（如需用到时保留）
     implementation(libs.androidx.constraintlayout)
+    // RecyclerView：高性能列表/网格视图（MainActivity 直接使用）
+    implementation(libs.androidx.recyclerview)
+    // 演示模块：包含所有导航目录页和演示 Fragment
+    implementation(project(":demo"))
 }

@@ -1,6 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Add custom brand colors here. Material3 color roles are managed by the theme system. -->
+    <!-- =============================================
+         基础色（保留工具类使用）
+         ============================================= -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- =============================================
+         品牌主色 Primary — 科技深蓝
+         ============================================= -->
+    <color name="md_theme_light_primary">#1565C0</color>
+    <color name="md_theme_light_onPrimary">#FFFFFF</color>
+    <color name="md_theme_light_primaryContainer">#D0E4FF</color>
+    <color name="md_theme_light_onPrimaryContainer">#001C3D</color>
+
+    <!-- =============================================
+         次色 Secondary — 亮蓝
+         ============================================= -->
+    <color name="md_theme_light_secondary">#0277BD</color>
+    <color name="md_theme_light_onSecondary">#FFFFFF</color>
+    <color name="md_theme_light_secondaryContainer">#C8E6F9</color>
+    <color name="md_theme_light_onSecondaryContainer">#001E30</color>
+
+    <!-- =============================================
+         三级色 Tertiary — 强调橙
+         ============================================= -->
+    <color name="md_theme_light_tertiary">#E65100</color>
+    <color name="md_theme_light_onTertiary">#FFFFFF</color>
+    <color name="md_theme_light_tertiaryContainer">#FFDBCA</color>
+    <color name="md_theme_light_onTertiaryContainer">#331200</color>
+
+    <!-- =============================================
+         错误色 Error
+         ============================================= -->
+    <color name="md_theme_light_error">#B3261E</color>
+    <color name="md_theme_light_onError">#FFFFFF</color>
+    <color name="md_theme_light_errorContainer">#F9DEDC</color>
+    <color name="md_theme_light_onErrorContainer">#410E0B</color>
+
+    <!-- =============================================
+         背景 / 表面 Surface
+         ============================================= -->
+    <color name="md_theme_light_background">#F6F9FF</color>
+    <color name="md_theme_light_onBackground">#191C20</color>
+    <color name="md_theme_light_surface">#F6F9FF</color>
+    <color name="md_theme_light_onSurface">#191C20</color>
+    <color name="md_theme_light_surfaceVariant">#DFE2EB</color>
+    <color name="md_theme_light_onSurfaceVariant">#43474E</color>
+    <color name="md_theme_light_outline">#73777F</color>
+    <color name="md_theme_light_outlineVariant">#C3C7CF</color>
+    <color name="md_theme_light_inverseSurface">#2E3135</color>
+    <color name="md_theme_light_inverseOnSurface">#EFF1F8</color>
+    <color name="md_theme_light_inversePrimary">#9ECAFF</color>
+    <color name="md_theme_light_surfaceTint">#1565C0</color>
+    <color name="md_theme_light_scrim">#000000</color>
+
+    <!-- =============================================
+         暗色模式 Dark Theme 色值
+         ============================================= -->
+    <color name="md_theme_dark_primary">#9ECAFF</color>
+    <color name="md_theme_dark_onPrimary">#003063</color>
+    <color name="md_theme_dark_primaryContainer">#00478C</color>
+    <color name="md_theme_dark_onPrimaryContainer">#D0E4FF</color>
+
+    <color name="md_theme_dark_secondary">#7FCDFF</color>
+    <color name="md_theme_dark_onSecondary">#00344F</color>
+    <color name="md_theme_dark_secondaryContainer">#004C6F</color>
+    <color name="md_theme_dark_onSecondaryContainer">#C8E6F9</color>
+
+    <color name="md_theme_dark_tertiary">#FFB590</color>
+    <color name="md_theme_dark_onTertiary">#5C1A00</color>
+    <color name="md_theme_dark_tertiaryContainer">#823B00</color>
+    <color name="md_theme_dark_onTertiaryContainer">#FFDBCA</color>
+
+    <color name="md_theme_dark_error">#F2B8B5</color>
+    <color name="md_theme_dark_onError">#601410</color>
+    <color name="md_theme_dark_errorContainer">#8C1D18</color>
+    <color name="md_theme_dark_onErrorContainer">#F9DEDC</color>
+
+    <color name="md_theme_dark_background">#111318</color>
+    <color name="md_theme_dark_onBackground">#E2E2E9</color>
+    <color name="md_theme_dark_surface">#111318</color>
+    <color name="md_theme_dark_onSurface">#E2E2E9</color>
+    <color name="md_theme_dark_surfaceVariant">#43474E</color>
+    <color name="md_theme_dark_onSurfaceVariant">#C3C7CF</color>
+    <color name="md_theme_dark_outline">#8D9199</color>
+    <color name="md_theme_dark_outlineVariant">#43474E</color>
+    <color name="md_theme_dark_inverseSurface">#E2E2E9</color>
+    <color name="md_theme_dark_inverseOnSurface">#2E3135</color>
+    <color name="md_theme_dark_inversePrimary">#1565C0</color>
+    <color name="md_theme_dark_surfaceTint">#9ECAFF</color>
+    <color name="md_theme_dark_scrim">#000000</color>
 </resources>

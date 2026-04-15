@@ -8,7 +8,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidTech">
-        <!-- 在此声明项目所需的 Activity，例如：
+
+        <!-- 总目录 -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -17,7 +18,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        -->
+
+        <!-- 4.1 实验框架（保留在 :app；通过 Intent Action 供 :demo 无耦合跳转）-->
+        <activity
+            android:name=".chapter4.s1layout.Ch4S1LabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="cn.edu.sziit.android.tech.lab.CH4_S1" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>
