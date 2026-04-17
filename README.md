@@ -1,14 +1,15 @@
 # AndroidBaseProject
 
-> 深信院 Android 移动应用开发课程基础模板项目
+> Android 移动应用开发课程 · 知识点演示 & 实验模板项目
 
 ---
 
 ## 项目简介
 
-本项目是一个经过精简和现代化配置的 Android 模板项目，作为课程实验的统一起点。  
-**模板本身不包含任何 Activity**，学生根据实验需求自行创建 Activity 并在 Manifest 中注册。  
-使用前只需修改少量配置，即可快速开始每次实验，无需从空项目反复搭建环境。
+本项目面向 Android 移动应用开发课程，承担两个核心职责：
+
+1. **知识点演示（Demo）**：以可交互的 Fragment 演示课程各章节的关键知识点，辅助课堂讲解与学生自学。
+2. **实验模板（Lab Template）**：为每个实验提供预置好的页面框架，学生只需在指定区域填写实验代码，无需从零搭建环境。
 
 ---
 
@@ -22,8 +23,8 @@
 | compileSdk / targetSdk | 36 |
 | minSdk | 24（Android 7.0+） |
 | 主题 | Material3 · `Theme.AndroidTech` · DayNight · NoActionBar |
-| 包名 | `cn.edu.sziit.android.tech` |
-| 入口 Activity | 无（由使用者按实验需求自行创建） |
+| 应用包名 | `cn.edu.sziit.android.tech` |
+| 架构 | 多模块（`:app` + `:demo`） |
 | ViewBinding | 已启用 |
 
 ### 依赖库
@@ -35,100 +36,107 @@
 | `com.google.android.material:material` | 1.13.0 | Material Design 3 组件 |
 | `androidx.activity:activity` | 1.13.0 | 现代 Activity 基类 |
 | `androidx.constraintlayout:constraintlayout` | 2.2.1 | 约束布局 |
+| `androidx.recyclerview:recyclerview` | 1.4.0 | 章节导航列表 |
 
 ---
 
-## 项目结构
+## 多模块架构
 
 ```
 AndroidBaseProject/
-├── app/
-│   ├── src/main/
-│   │   ├── java/cn/edu/sziit/android/tech/
-│   │   │   └── （空包，新建 Activity 放于此处）
-│   │   ├── res/
-│   │   │   ├── drawable/               # 启动图标矢量素材
-│   │   │   ├── mipmap-anydpi-v26/      # 自适应图标（API 26+）
-│   │   │   ├── mipmap-xxhdpi/          # 旧版设备回退图标
-│   │   │   └── values/
-│   │   │       ├── colors.xml          # 品牌颜色（Material3 主色系由主题管理）
-│   │   │       ├── strings.xml         # 字符串资源
-│   │   │       └── themes.xml          # 应用主题定义
-│   │   └── AndroidManifest.xml
-│   └── build.gradle.kts               # 模块构建脚本（含详细注释）
-├── gradle/
-│   ├── libs.versions.toml             # 版本目录（统一管理依赖版本）
-│   └── wrapper/
-│       └── gradle-wrapper.properties  # Gradle 发行版配置
-├── build.gradle.kts                   # 根项目构建脚本
-├── settings.gradle.kts                # 项目设置（仓库镜像、模块声明）
-├── gradle.properties                  # 全局 Gradle 属性（性能优化）
-└── .gitignore
+├── app/                            # 主应用模块（Lab Template）
+│   └── src/main/
+│       ├── java/.../
+│       │   ├── MainActivity.kt       # 首页：章节导航（展开式列表）
+│       │   └── chapter4/s1layout/
+│       │       ├── Ch4S1LinearLabActivity.kt     # 4.1 线性布局实验模板
+│       │       └── Ch4S1ConstraintLabActivity.kt # 4.1 约束布局实验模板
+│       └── res/
+│           ├── layout/               # 布局文件
+│           └── drawable/             # 图形资源（bg_calculator_btn.xml 等）
+│
+└── demo/                           # 演示模块（Android Library）
+    └── src/main/
+        └── java/.../
+            ├── common/
+            │   ├── ExpandableMenuAdapter.kt  # 首页章节展开菜单
+            │   ├── MenuEntryAdapter.kt       # 小节列表菜单
+            │   ├── ChapterGroup.kt           # 章节数据模型
+            │   └── MenuEntry.kt              # 菜单项数据模型
+            └── chapter4/
+                ├── Ch4Activity.kt            # 第4章小节列表
+                └── s1layout/
+                    ├── Ch4S1Activity.kt         # 4.1 实验/演示入口列表
+                    ├── Ch4S1DemoActivity.kt      # Demo Fragment 容器
+                    └── demo/
+                        ├── VisibilityFragment      # visibility 属性演示
+                        ├── GravityFragment         # gravity 对齐演示
+                        ├── PaddingMarginFragment    # padding/margin 演示
+                        ├── LayoutSizeFragment       # layout_width/height 演示
+                        ├── OrientationFragment      # orientation 演示
+                        └── ConstraintFragment       # ConstraintLayout 演示
+```
+
+### 模块职责分工
+
+| 模块 | 职责 | 包名 |
+|---|---|---|
+| `:app` | 首页导航 + 所有实验模板 Activity | `cn.edu.sziit.android.tech` |
+| `:demo` | 章节导航页 + 所有知识点演示 Fragment | `cn.edu.sziit.android.tech.demo` |
+
+跨模块跳转（`:demo` → `:app` 实验页）通过 **Intent Action** 解耦：
+
+```
+cn.edu.sziit.android.tech.lab.CH4_S1_LINEAR    → Ch4S1LinearLabActivity
+cn.edu.sziit.android.tech.lab.CH4_S1_CONSTRAINT → Ch4S1ConstraintLabActivity
 ```
 
 ---
 
-## 基于本模板创建新实验项目时，需修改的地方
+## 导航层级
 
-创建新实验时，以最小改动原则，按以下顺序修改：
-
-### 1. 修改应用标识（必改）
-
-**文件：`app/build.gradle.kts`**
-```kotlin
-// 将 applicationId 改为本次实验的唯一标识
-applicationId = "cn.edu.sziit.android.实验名称"
+```
+MainActivity（首页章节目录）
+└── Ch4Activity（第4章小节列表）
+    └── Ch4S1Activity（4.1 实验/演示列表）
+        ├── Ch4S1LinearLabActivity     （实验：线性布局）
+        ├── Ch4S1ConstraintLabActivity （实验：约束布局）
+        └── Ch4S1DemoActivity          （知识点演示容器）
+            ├── VisibilityFragment
+            ├── GravityFragment
+            ├── PaddingMarginFragment
+            ├── LayoutSizeFragment
+            ├── OrientationFragment
+            └── ConstraintFragment
 ```
 
-**文件：`settings.gradle.kts`**
-```kotlin
-// 修改项目逻辑名称
-rootProject.name = "实验项目名称"
-```
+---
 
-### 2. 修改包名（建议）
+## 新增章节 / 小节 / 演示的方式
 
-**在 Android Studio 中右键包名目录 → Refactor → Rename**，将 `cn.edu.sziit.android.tech` 改为对应实验的包名，同时更新 `build.gradle.kts` 中的 `namespace`。
+### 新增演示 Fragment
 
-### 3. 创建 Activity 并注册（必须）
+1. 在 `demo/.../chapter4/s1layout/demo/` 下创建新 Fragment 类和布局文件
+2. 在 `Ch4S1DemoActivity` 中添加 TAG 常量，并在 `when` 分支中注册
+3. 在 `Ch4S1Activity` 的 `entries` 列表中追加对应 `MenuEntry`
 
-本模板不含默认 Activity，需根据实验内容创建。
+### 新增实验 Activity
 
-**在 Android Studio 中**：  
-右键包名 → New → Activity → 选择类型（如 Empty Views Activity）
+1. 在 `app/.../chapterX/` 下创建实验 Activity 类和布局文件
+2. 在 `app/AndroidManifest.xml` 中注册，并设置唯一 `intent-filter` Action
+3. 在 `:demo` 对应小节的 Activity 中追加 `MenuEntry(action = "...")`
 
-或手动创建 Kotlin 文件，并在 `AndroidManifest.xml` 中注册：
+### 新增章节
 
-```xml
-<activity
-    android:name=".MainActivity"
-    android:exported="true">
-    <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
-        <category android:name="android.intent.category.LAUNCHER" />
-    </intent-filter>
-</activity>
-```
-
-### 4. 修改应用名称（建议）
-
-**文件：`res/values/strings.xml`**
-```xml
-<string name="app_name">实验应用名称</string>
-```
-
-### 5. 可选修改
-
-- **主题颜色**：在 `res/values/themes.xml` 中的 `Theme.AndroidTech` 样式内添加 `colorPrimary` 等条目
-- **最低 SDK**：如实验需要更高 API，修改 `build.gradle.kts` 中的 `minSdk`
-- **依赖库**：在 `gradle/libs.versions.toml` 添加版本，在 `app/build.gradle.kts` 中 `implementation()`
+1. 在 `:demo` 中创建 `ChapterX/` 目录，仿照 `Ch4Activity` / `Ch4S1Activity` 新建导航 Activity
+2. 在 `MainActivity.kt` 的 `chapters` 列表中追加 `ChapterGroup`
 
 ---
 
 ## 构建与运行
 
 ```bash
-# 直接在 Android Studio 中点击 Run，或：
+# Android Studio 中直接点击 Run，或命令行：
 ./gradlew assembleDebug
 ```
 
@@ -136,7 +144,7 @@ rootProject.name = "实验项目名称"
 
 ## 注意事项
 
-- Gradle 从 `services.gradle.org` 下载（9.1.0），首次同步需要网络
-- 依赖库通过阿里云镜像加速下载（`maven.aliyun.com`）
+- Gradle 从 `services.gradle.org` 下载（9.1.0），首次同步需网络；依赖通过阿里云镜像加速
 - AGP 9.0 使用内置 Kotlin，无需手动声明 `kotlin-android` 插件
-- ViewBinding 已全局启用，新增布局文件后自动生成对应绑定类
+- PowerShell 写入任何文件时，必须使用 `New-Object System.Text.UTF8Encoding($false)` 创建无 BOM 的 UTF-8 编码，否则 AAPT2 解析 XML 时会崩溃
+- `:demo` 模块的 `AndroidManifest.xml` 须使用**完整限定类名**（非相对包名），避免合并后解析错误
