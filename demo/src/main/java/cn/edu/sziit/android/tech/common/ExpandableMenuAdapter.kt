@@ -28,7 +28,7 @@ class ExpandableMenuAdapter(
     }
 
     /** 璁板綍姣忎釜 group 鏄惁灞曞紑 */
-    private val expandedState = BooleanArray(groups.size) { false }
+    private val expandedState = BooleanArray(groups.size) { true }
 
     /** 鎵佸钩鍖栫殑鏄剧ず椤瑰垪琛紙鐢?groups + expandedState 鍔ㄦ€佽绠楋級 */
     private val flatItems = mutableListOf<Any>() // ChapterGroup 鎴?MenuEntry
