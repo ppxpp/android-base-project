@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:context=".chapter4.s1layout.Ch4S1LinearLabActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
@@ -16,20 +15,24 @@
         app:navigationIcon="?attr/homeAsUpIndicator"
         app:title="线性布局实验" />
 
-    <!-- ================================================================
-         实验区域：在下方 LinearLayout 内完成线性布局练习
-         可修改 orientation、gravity、padding、margin 等属性
-         ================================================================ -->
-    <LinearLayout
-        android:id="@+id/labContainer"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="18dp"
+        android:text="计算器按键布局"
+        android:textSize="25sp" />
+
+    <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_margin="12dp"
         android:layout_weight="1"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:background="@drawable/bg_view_border" />
 
-        <!-- TODO: 在此添加实验内容 -->
+    <!-- ================================================================
+         TODO: 实验区域：在下方 LinearLayout 内完成线性布局练习
+         可修改 orientation、gravity、padding、margin 等属性
+         ================================================================ -->
 
-    </LinearLayout>
 
 </LinearLayout>
